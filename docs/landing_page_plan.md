@@ -29,7 +29,7 @@
 | **A/B testing** | Full page variants (problem-first vs results-first) |
 | **Booking** | Google Calendar appointment scheduling embedded via iframe |
 | **Booking URL** | `https://calendar.app.google/LrpnDjLc4rtAWfDFA` |
-| **Analytics** | PostHog (project ID: 377722, region: US) |
+| **Analytics** | PostHog (project ID: 393090, region: US) |
 | **Founder section** | No photo, no name, no LinkedIn — removed entirely |
 | **Pricing** | Visible on page — $3,500 pilot scan |
 | **Contact method** | Google Calendar embed (no separate contact form) |
@@ -272,9 +272,9 @@ Same as Variant A, with minor tone adjustments:
 
 ### PostHog Configuration
 
-- **Project ID:** 377722
+- **Project ID:** 393090
 - **Region:** US
-- **Project token:** `phc_BfuzdSvms4QeaUMYQA2SC7h7epUL3Psj7xx7i3XqPeXJ`
+- **Project token:** `phc_umwjjs4aw4f7XxEEUbCUvTd4U7k7YdeDFDb2uNq8wSkH`
 - Track: `$pageview`, `cta_click`, `booking_click`, `scroll_depth`, `variant_assigned`
 
 ---
@@ -353,7 +353,7 @@ landing-page/
 
 ### Step 3: Analytics
 
-1. PostHog already configured (project 377722, US region)
+1. PostHog already configured (project 393090, US region)
 2. Add project token to `.env.local`
 3. Set up A/B test experiment in PostHog dashboard
 
@@ -403,7 +403,7 @@ These will matter more when blog/docs are added. For now, good meta tags help wi
 | **Pilot price** | Confirmed | $3,500 |
 | **Pilot scope** | Confirmed | 1 dataset, up to 3 columns, up to 1M records, 5 business days |
 | **Google Calendar** | Done | `https://calendar.app.google/LrpnDjLc4rtAWfDFA` |
-| **PostHog** | Done | Project 377722, token provided, US region |
+| **PostHog** | Done | Project 393090, token provided, US region |
 | **Real testimonials** | Later | Placeholder text included, replace when available |
 | **Anonymized examples** | Confirm | Using examples from strategic_context.md — confirm which to use |
 | **Domain (contextive)** | Consider | Currently anomalsky.com — may want to purchase contextive.com/io/ai |

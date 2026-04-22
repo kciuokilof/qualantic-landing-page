@@ -1,28 +1,17 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { getVariantFromCookie, type Variant } from "@/lib/ab-test";
+import { cookies } from "next/headers";
+import type { Variant } from "@/lib/ab-test";
 import { VariantA } from "./variants/variant-a";
 import { VariantB } from "./variants/variant-b";
-import posthog from "posthog-js";
+import { VariantTracker } from "@/components/variant-tracker";
 
-export default function Home() {
-  const [variant, setVariant] = useState<Variant | null>(null);
+export default async function Home() {
+  const cookieStore = await cookies();
+  const variant = (cookieStore.get("ab-variant")?.value as Variant) || "a";
 
-  useEffect(() => {
-    const v = getVariantFromCookie();
-    setVariant(v);
-    posthog.capture("variant_assigned", { variant: v });
-  }, []);
-
-  // Brief loading state while reading cookie
-  if (!variant) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="w-8 h-8 border-2 border-brand-600 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  return variant === "a" ? <VariantA /> : <VariantB />;
+  return (
+    <>
+      <VariantTracker variant={variant} />
+      {variant === "a" ? <VariantA /> : <VariantB />}
+    </>
+  );
 }

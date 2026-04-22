@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function HowItWorks() {
   return (
     <section className="py-20 bg-white" id="how-it-works">
@@ -14,7 +16,7 @@ export function HowItWorks() {
           {/* Left: What you provide */}
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8">
             <div className="flex items-center gap-3 mb-6">
-              <img src="/you-icon.png" alt="You" className="w-10 h-10 rounded-full" />
+              <Image src="/you-icon.png" alt="Your input" width={40} height={40} className="w-10 h-10 rounded-full" />
               <h3 className="text-xl font-semibold text-gray-900">
                 What you provide
               </h3>
@@ -98,7 +100,7 @@ export function HowItWorks() {
           {/* Right: What you receive */}
           <div className="rounded-2xl border-2 border-brand-200 bg-white p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <img src="/small-icon.png" alt="Qualantic" className="w-10 h-10 rounded-full" />
+              <Image src="/small-icon.png" alt="Qualantic deliverables" width={40} height={40} className="w-10 h-10 rounded-full" />
               <h3 className="text-xl font-semibold text-gray-900">
                 What you receive
               </h3>
