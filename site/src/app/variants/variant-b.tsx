@@ -17,11 +17,11 @@ export function VariantB() {
         <Hero
           headline={
             <>
-              <span className="block">Missing piece of your text data quality is here.</span>
-              <span className="block">Start monitoring semantic quality with Qualantic.</span>
+              <span className="block">Great data quality begins with granular inspection.</span>
+              <span className="block">Now you can do it for your text data with Qualantic.</span>
             </>
           }
-          subheadline="Text data correctness can’t rely only on rule-based or aggregate checks. Qualantic scans your text columns record by record at scale and points you to the rows that shouldn’t exist in production."
+          subheadline="Qualantic finds semantically broken records that rule based checks, schema checks, and distribution monitoring can't catch. It's a scalable workflow for large datasets. Start monitoring semantic correctness of your data with clear Qualantic reports."
           ctaText="Book a Pilot Call"
           variant="b"
         />
