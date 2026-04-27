@@ -1,20 +1,34 @@
+"use client";
+
 import Image from "next/image";
+import { useScrollReveal, revealStyle } from "@/hooks/use-scroll-reveal";
 
 export function HowItWorks() {
+  const { ref, visible } = useScrollReveal(0.15);
+
   return (
     <section className="py-20 bg-white" id="how-it-works">
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center">
+      <div className="mx-auto max-w-5xl px-6" ref={ref}>
+        <h2
+          className="text-3xl sm:text-4xl font-bold text-gray-900 text-center"
+          style={revealStyle(visible, 0)}
+        >
           Onboarding
         </h2>
-        <p className="mt-4 text-lg text-gray-600 text-center max-w-2xl mx-auto">
+        <p
+          className="mt-4 text-lg text-gray-600 text-center max-w-2xl mx-auto"
+          style={revealStyle(visible, 0)}
+        >
           Describe your columns. We scan every record. You get a report in five
           business days.
         </p>
 
         <div className="mt-16 grid md:grid-cols-2 gap-12">
           {/* Left: What you provide */}
-          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8">
+          <div
+            className="rounded-2xl border border-gray-200 bg-gray-50 p-8"
+            style={revealStyle(visible, 150)}
+          >
             <div className="flex items-center gap-3 mb-6">
               <Image src="/you-icon.png" alt="Your input" width={40} height={40} className="w-10 h-10 rounded-full" />
               <h3 className="text-xl font-semibold text-gray-900">
@@ -98,7 +112,10 @@ export function HowItWorks() {
           </div>
 
           {/* Right: What you receive */}
-          <div className="rounded-2xl border-2 border-brand-200 bg-white p-8 shadow-sm">
+          <div
+            className="rounded-2xl border-2 border-brand-200 bg-white p-8 shadow-sm"
+            style={revealStyle(visible, 300)}
+          >
             <div className="flex items-center gap-3 mb-6">
               <Image src="/small-icon.png" alt="Qualantic deliverables" width={40} height={40} className="w-10 h-10 rounded-full" />
               <h3 className="text-xl font-semibold text-gray-900">

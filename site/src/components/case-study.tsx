@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { FindingsChart } from "@/components/findings-chart";
 
@@ -113,19 +116,7 @@ export function CaseStudy() {
         */}
 
         {/* Stats summary */}
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {STATS.map((s) => (
-            <div
-              key={s.label}
-              className="text-center rounded-xl border border-gray-200 bg-gray-50 p-6"
-            >
-              <div className="text-3xl sm:text-4xl font-bold text-brand-600">
-                {s.value}
-              </div>
-              <div className="mt-1 text-sm text-gray-500">{s.label}</div>
-            </div>
-          ))}
-        </div>
+        <AnimatedStats stats={STATS} />
 
         {/* Example anomalies found */}
         <div className="mt-12">
@@ -221,5 +212,49 @@ export function CaseStudy() {
         </div>
       </div>
     </section>
+  );
+}
+
+function AnimatedStats({ stats }: { stats: { value: string; label: string }[] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+      {stats.map((s, i) => (
+        <div
+          key={s.label}
+          className="text-center rounded-xl border border-gray-200 bg-gray-50 p-6"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0) scale(1)" : "translateY(16px) scale(0.95)",
+            transition: `opacity 500ms ease ${i * 120}ms, transform 500ms ease ${i * 120}ms`,
+          }}
+        >
+          <div className="text-3xl sm:text-4xl font-bold text-brand-600">
+            {s.value}
+          </div>
+          <div className="mt-1 text-sm text-gray-500">{s.label}</div>
+        </div>
+      ))}
+    </div>
   );
 }

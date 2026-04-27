@@ -1,3 +1,7 @@
+"use client";
+
+import { useScrollReveal, revealStyle } from "@/hooks/use-scroll-reveal";
+
 const SCENARIOS = [
   {
     icon: (
@@ -32,13 +36,21 @@ const SCENARIOS = [
 ];
 
 export function Results() {
+  const { ref, visible } = useScrollReveal(0.15);
+
   return (
     <section className="py-20 bg-white" id="results">
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center">
+      <div className="mx-auto max-w-5xl px-6" ref={ref}>
+        <h2
+          className="text-3xl sm:text-4xl font-bold text-gray-900 text-center"
+          style={revealStyle(visible, 0)}
+        >
           Sound familiar?
         </h2>
-        <p className="mt-4 text-lg text-gray-600 text-center max-w-2xl mx-auto">
+        <p
+          className="mt-4 text-lg text-gray-600 text-center max-w-2xl mx-auto"
+          style={revealStyle(visible, 0)}
+        >
           Every team working with large text datasets hits the same wall.
         </p>
 
@@ -47,6 +59,7 @@ export function Results() {
             <div
               key={i}
               className="rounded-xl border border-gray-200 bg-gray-50 p-6"
+              style={revealStyle(visible, 200 + i * 120, { scale: true })}
             >
               <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-brand-50 mb-4">
                 {s.icon}
