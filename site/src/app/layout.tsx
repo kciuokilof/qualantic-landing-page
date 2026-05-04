@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Qualantic — Find Broken Records Your Data Quality Tools Miss",
   description:
-    "ML + AI scans millions of text records to find semantic errors invisible to schema checks and distribution monitoring. 99% precision. Results in 5 days. Starting at $3,000.",
+    "Text data correctness can’t rely only on rule-based or aggregate checks. Qualantic scans your text columns record by record at scale and points you to the rows that shouldn’t exist in production.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
