@@ -46,7 +46,7 @@ export function Booking() {
           Ready to see what&apos;s hiding in your data?
         </h2>
         <p className="mt-4 text-lg text-gray-600 text-center max-w-xl mx-auto">
-          Book a 30-minute pilot call. We&apos;ll discuss your dataset and
+          Book a free 30-minute pilot call. We&apos;ll discuss your dataset and
           whether a scan makes sense.
         </p>
 
